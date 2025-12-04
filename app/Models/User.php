@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Auth\Notifications\ResetPassword; // <--- 1. IMPORTANTE: Adicione esta linha
 
 class User extends Authenticatable
 {
@@ -22,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'is_admin',
+        'is_active', // <--- 2. IMPORTANTE: Adicionei isso para seu login funcionar
     ];
 
     /**
@@ -44,6 +46,23 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean',  // Garante que retorne true/false
+            'is_active' => 'boolean', // Garante que retorne true/false
         ];
+    }
+
+    /**
+     * Sobrescreve o envio padrão de reset de senha.
+     * Em vez de enviar AGORA (e travar o site), coloca na fila para daqui a 2 segundos.
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $notification = new ResetPassword($token);
+        
+        // O método 'delay' joga o envio para a fila (Queue)
+        // Isso evita o erro de "Maximum execution time"
+        $notification->delay(now()->addSeconds(2)); 
+        
+        $this->notify($notification);
     }
 }
