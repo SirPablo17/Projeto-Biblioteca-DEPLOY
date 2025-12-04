@@ -57,12 +57,8 @@ class User extends Authenticatable
      */
     public function sendPasswordResetNotification($token)
     {
-        $notification = new ResetPassword($token);
-        
-        // O método 'delay' joga o envio para a fila (Queue)
-        // Isso evita o erro de "Maximum execution time"
-        $notification->delay(now()->addSeconds(2)); 
-        
-        $this->notify($notification);
+        // Usa a nossa nova classe que suporta filas
+        // Não precisa mais do ->delay(), o 'implements ShouldQueue' já resolve.
+        $this->notify(new \App\Notifications\QueuedResetPassword($token));
     }
 }
