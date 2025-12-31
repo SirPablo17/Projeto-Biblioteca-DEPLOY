@@ -1,59 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 Livraria Online — Laravel 11
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Bem-vindo ao repositório da **Livraria Online**, uma aplicação de **e-commerce completa** desenvolvida com **Laravel 11**, focada na venda de livros 📖.
 
-## About Laravel
+Este projeto foi construído do zero, aplicando **boas práticas de desenvolvimento web moderno**, incluindo autenticação, painel administrativo, gestão de produtos e fluxo de compras.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Funcionalidades Principais
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🛒 Cliente (Front-end)
 
-## Learning Laravel
+- 📚 **Catálogo de Livros**  
+  Visualização de livros com paginação, imagens de capa e preços.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- 🎠 **Carrossel de Destaques**  
+  Sliders dinâmicos na Home para livros marcados como *Destaque* no painel administrativo.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- 🔍 **Pesquisa Avançada**  
+  Busca global por:
+  - Título do livro  
+  - Nome do autor  
+  - Género  
 
-## Laravel Sponsors
+- 🗂️ **Filtros por Categoria**  
+  Navegação rápida por géneros (Fantasia, Romance, Terror, etc.).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- 🛍️ **Carrinho de Compras**  
+  - Adicionar e remover itens  
+  - Alterar quantidades  
+  - Resumo de preços (armazenado em sessão)
 
-### Premium Partners
+- 💳 **Checkout Simulado**  
+  Formulário completo de finalização de compra.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- ❤️ **Lista de Desejos (Favoritos)**  
+  Salve livros para comprar depois (ícone de coração interativo).
 
-## Contributing
+- 📦 **Meus Pedidos**  
+  Histórico completo de compras com status (*Pago*, *Pendente*) e detalhes.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🔐 Autenticação & Segurança
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- 👤 **Login e Registo de Utilizadores**
+- 🔑 **Recuperação de Senha**
+  - Fluxo de *Esqueci a Senha* com envio de e-mail (Mailtrap ou Gmail)
+- 🛡️ **Controlo de Acesso (ACL)**
+  - Middleware personalizado para separar **Utilizadores Comuns** e **Administradores**
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## ⚙️ Painel Administrativo (Back-end)
 
-## License
+- 📊 **Dashboard Administrativo**
+  - Acesso restrito a administradores
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- 📦 **Gestão de Produtos (CRUD)**
+  - Criar, editar, listar e excluir livros  
+  - Campos disponíveis:
+    - Título  
+    - Autor  
+    - Editora  
+    - Género  
+    - Preço  
+    - Sinopse  
+    - Imagem  
+  - Checkbox para marcar livros como **Destaque**
+
+- 👥 **Gestão de Utilizadores**
+  - Listagem de utilizadores registados  
+  - Alteração de status (*Ativo/Inativo*)
+
+- 🔎 **Pesquisa Administrativa**
+  - Busca rápida de produtos e utilizadores no painel admin
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Framework:** Laravel 11 (PHP 8.2+)  
+- **Banco de Dados:**  
+  - PostgreSQL (Produção)  
+  - SQLite (Desenvolvimento)  
+- **Front-end:** Blade Templates, Tailwind CSS  
+- **JavaScript:** Vanilla JS  
+- **Estilização:** CSS Atômico (Atomic Design) + Tailwind Utility Classes  
+- **Ícones:** FontAwesome  
+- **Deploy:** Railway  
+
+---
+
+## 💻 Instalação e Configuração Local
+
+### 1️⃣ Clonar o Repositório
+
+```bash
+git clone https://github.com/seu-usuario/projeto-biblioteca.git
+cd projeto-biblioteca
